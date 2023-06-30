@@ -1,43 +1,28 @@
 #include "main.h"
 /**
- * print_number - prints number
- * @n:integer to convert to character
- *
+ * rot13 - encrypts code
+ * @s: string to encrypt
+ * Return: char value
  */
-void print_number(int n)
+char *rot13(char *s)
 {
-	unsigned int abs;
-	int mult = 1;
-	unsigned int abSCount;
+	char part1[52] = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
+	char part2[52] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
+
 	int i;
-	int c = 0;
+	int j = 0;
 
-	if (n == 0)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		_putchar('0');
-	}
-	if (n < 0)
-	{
-		_putchar('-');
-		n += 1;
-		n *= -1;
-		n++;
-	}
-	abs = n;
-	abSCount = n;
 
-	while (abSCount > 0)
-	{
-		abSCount /= 10;
-		c++;
+		for (j = 0; part1[j] != '\0'; j++)
+		{
+			if (s[i] == part1[j])
+			{
+				s[i] = part2[j];
+				break;
+			}
+		}
 	}
-	for (i = 0; i < c - 1; i++)
-		mult *= 10;
-
-	for (i = 0; i < c; i++)
-	{
-		_putchar((abs / mult) + '0');
-		abs = abs % mult;
-		mult /= 10;
-	}
+	return (s);
 }
