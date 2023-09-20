@@ -1,22 +1,18 @@
-#include "main.h"
-
+#include "holberton.h"
 /**
- * _islower - Short description, single line
- * @c: contains value to be compared
- * Return: Always 0.
+ * _islower - main function
+ *
+ * @c: character to compare
+ *
+ * Return: 1 if true, 0 if false
+ *
  */
+
 int _islower(int c)
-
 {
-
-	if (c > 'a' && c < 'z')
+	if (c >= 'a' && c <= 'z')
 	{
 		return (1);
 	}
-
-	else
-	{
-		return (0);
-	}
-
+	return (0);
 }

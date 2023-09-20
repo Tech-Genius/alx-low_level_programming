@@ -1,29 +1,26 @@
-#include "main.h"
+#include "holberton.h"
 /**
- *_strcat - concatenates two strings
- *@dest: A pointer to a character that will be changed
- *@src: A pointer to a character that will also be changed
- *Return: dest
+ * _strcat - concats two arrays
+ *
+ * @dest: destination of concat
+ * @src: source array to concat
+ *
+ * Return: char value
  */
-
 char *_strcat(char *dest, char *src)
 {
-int i, j;
+	int i;
+	int j;
 
-i = 0;
-while (dest[i] != '\0')
-{
-i++;
-}
+	for (j = 0; dest[j] != '\0'; j++)
+	{}
 
-j = 0;
-while (src[j] != '\0')
-{
-dest[i] = src[j];
-j++;
-i++;
-}
-dest[i] = '\0';
+	for (i = 0; src[i] != '\0'; i++)
+	{
+		dest[j + i] = src[i];
+	}
+	dest[j + i] = '\0';
 
-return (dest);
+	return (dest);
+
 }
