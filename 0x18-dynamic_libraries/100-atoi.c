@@ -1,45 +1,35 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * _atoi - converts string to integer
- * @s: string to convert
- *
- * Return: returns integer value
+ * _atoi - converts a string to an integer.
+ * @s: params
+ * Return: something
  */
 int _atoi(char *s)
 {
-	int i;
-	int np = 0;
-	int c;
-	int d = 1;
-	int num = 0;
+	unsigned int count = 0, size = 0, j = 0, k = 1, m = 1, i;
 
-	for (i = 0; i < _strlen(s); i++)
+	while (*(s + count) != '\0')
 	{
-		if (!(s[i] >= '0' && s[i] <= '9') && c > 0)
+		if (size > 0 && (*(s + count) < '0' || *(s + count) > '9'))
 			break;
-		if (s[i] == '-')
-			np--;
-		if (s[i] == '+')
-			np++;
-		if (s[i] >= '0' && s[i] <= '9')
+
+		if (*(s + count) == '-')
+			k *= -1;
+
+		if ((*(s + count) >= '0') && (*(s + count) <= '9'))
 		{
-			c++;
+			if (size > 0)
+				m *= 10;
+			size++;
 		}
+		count++;
 	}
-	while (c > 0)
+
+	for (i = count - size; i < count; i++)
 	{
-		num += ((s[i - 1] - '0') * d);
-		i--;
-		c--;
-		d *= 10;
+		j = j + ((*(s + i) - 48) * m);
+		m /= 10;
 	}
-	if (np >= 0)
-	{
-		num *= 1;
-	} else
-	{
-		num *= -1;
-	}
-	return (num);
+	return (j * k);
 }
